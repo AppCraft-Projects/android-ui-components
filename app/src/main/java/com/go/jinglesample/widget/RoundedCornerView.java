@@ -54,4 +54,17 @@ public final class RoundedCornerView extends View {
             ta.recycle();
         }
     }
+
+    public void setCorners(final float topLeftRadius, final float topRightRadius, final float bottomRightRadius, final float bottomLeftRadius) {
+        corners = new float[] {
+                topLeftRadius,
+                topLeftRadius,
+                topRightRadius,
+                topRightRadius,
+                bottomRightRadius,
+                bottomRightRadius,
+                bottomLeftRadius,
+                bottomLeftRadius
+        };
+    }
 }
