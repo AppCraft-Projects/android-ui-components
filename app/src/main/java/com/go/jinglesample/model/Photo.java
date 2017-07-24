@@ -1,4 +1,4 @@
-package com.go.jinglesample;
+package com.go.jinglesample.model;
 
 import android.graphics.Bitmap;
 

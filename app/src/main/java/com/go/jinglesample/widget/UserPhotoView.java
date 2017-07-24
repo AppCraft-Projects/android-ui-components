@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.go.jinglesample.Photo;
+import com.go.jinglesample.model.Photo;
 import com.go.jinglesample.R;
 
 public class UserPhotoView extends FrameLayout {
