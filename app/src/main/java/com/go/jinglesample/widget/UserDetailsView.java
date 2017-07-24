@@ -1,13 +1,17 @@
 package com.go.jinglesample.widget;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
 
+import com.go.jinglesample.Photo;
 import com.go.jinglesample.R;
 
 public class UserDetailsView extends ScrollView {
+
+    UserPhotoView coverPhoto;
 
     public UserDetailsView(Context context) {
         super(context);
@@ -30,5 +34,13 @@ public class UserDetailsView extends ScrollView {
         setOverScrollMode(OVER_SCROLL_NEVER);
 
         View.inflate(context, R.layout.user_details_view, this);
+
+        coverPhoto = (UserPhotoView) findViewById(R.id.upv_user_details_cover);
+    }
+
+    public void setCoverPhoto(final Photo photo) {
+        coverPhoto.setType(UserPhotoView.TYPE_COVER);
+        coverPhoto.setPhoto(photo);
+        coverPhoto.setTag(TextUtils.isEmpty(photo.image_url) ? -1 : 0);
     }
 }

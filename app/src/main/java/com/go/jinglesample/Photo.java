@@ -8,6 +8,8 @@ public final class Photo implements Cloneable {
 
     private Bitmap bitmap;
 
+    public String image_url;
+
     private transient String fullImageUrl;
 
     public Bitmap getBitmap() {
