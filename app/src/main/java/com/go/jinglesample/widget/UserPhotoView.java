@@ -2,6 +2,8 @@ package com.go.jinglesample.widget;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -71,5 +73,29 @@ public class UserPhotoView extends FrameLayout {
                 photoImage.setCorners(CORNER_RADIUS, CORNER_RADIUS, CORNER_RADIUS, CORNER_RADIUS);
                 break;
         }
+    }
+
+    public void setPhoto(final Photo photo) {
+        this.photo = photo;
+        LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) getLayoutParams();
+        if (lp == null || lp.width <= 0) {
+            setType(TYPE_NORMAL);
+            lp = (LinearLayout.LayoutParams) getLayoutParams();
+        }
+        if (photo.getBitmap() != null) {
+            photoImage.setBitmap(photo.getBitmap());
+        } else {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.photo_placeholder);
+            photoImage.setBitmap(bitmap);
+        }
+    }
+
+    public void setLoading(final boolean loading) {
+        progressBar.setVisibility(loading ? View.VISIBLE : View.GONE);
+        photoImage.setVisibility(loading ? View.INVISIBLE : View.VISIBLE);
+    }
+
+    public Photo getValue() {
+        return photo;
     }
 }

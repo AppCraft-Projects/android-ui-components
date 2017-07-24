@@ -2,6 +2,8 @@ package com.go.jinglesample.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -66,5 +68,13 @@ public final class RoundedCornerView extends View {
                 bottomLeftRadius,
                 bottomLeftRadius
         };
+    }
+
+    public void setBitmap(final Bitmap bitmap) {
+        if (bitmap != null) {
+            setBackground(new RoundedCornerDrawable(bitmap, 0, corners));
+        } else {
+            setBackgroundColor(Color.TRANSPARENT);
+        }
     }
 }
