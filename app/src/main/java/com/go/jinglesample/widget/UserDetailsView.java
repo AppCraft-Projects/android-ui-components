@@ -24,6 +24,7 @@ public class UserDetailsView extends ScrollView {
     UserPhotoView thirdPhoto;
 
     TextView nameText;
+    TextView jobCompanyText;
 
     public UserDetailsView(Context context) {
         super(context);
@@ -53,6 +54,7 @@ public class UserDetailsView extends ScrollView {
         thirdPhoto  = (UserPhotoView) findViewById(R.id.upv_user_details_3);
 
         nameText     = (TextView) findViewById(R.id.tv_user_details_name);
+        jobCompanyText  = (TextView) findViewById(R.id.tv_user_details_job);
     }
 
     public void setUser(final User user) {
@@ -60,6 +62,7 @@ public class UserDetailsView extends ScrollView {
 
         setPhotos(user);
         setName(user);
+        setJob(user);
     }
 
     private void setPhotos(final User user) {
@@ -87,5 +90,14 @@ public class UserDetailsView extends ScrollView {
         nameBuilder.setSpan(new StyleSpan(Typeface.BOLD), 0, nameBuilder.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         nameBuilder.append(Integer.toString(user.age));
         this.nameText.setText(nameBuilder);
+    }
+
+    private void setJob(User user) {
+        StringBuilder jobText = new StringBuilder();
+        jobText.append(user.job)
+                .append(" @")
+                .append(user.company);
+
+        jobCompanyText.setText(jobText);
     }
 }

@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         user.age = 35;
         user.city = "Budapest";
 
+        user.job = "HR asszisztens";
+        user.company = "BigCommerce Kft.";
+
         return user;
     }
 
