@@ -95,7 +95,19 @@
             android:gravity="center_vertical"
             android:textColor="@color/black87"/>
 
-        <!-- EducationFieldView -->
+        <TextView
+            android:id="@+id/tv_user_details_education"
+            style="@style/Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="16dp"
+            android:drawableLeft="@drawable/ic_school_white_24dp"
+            android:drawableTint="@color/grey"
+            android:gravity="center_vertical"
+            android:textColor="@color/black87"/>
 
         <!-- AboutTagsView -->
 

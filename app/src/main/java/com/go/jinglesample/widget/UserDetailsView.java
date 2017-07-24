@@ -33,6 +33,8 @@ public class UserDetailsView extends ScrollView {
 
     TextView locationText;
 
+    TextView educationText;
+
     public UserDetailsView(Context context) {
         super(context);
         init(context);
@@ -69,6 +71,8 @@ public class UserDetailsView extends ScrollView {
         whatIfWeFieldView = (WhatIfWeFieldView) findViewById(R.id.wifwv_user_details);
 
         locationText = (TextView) findViewById(R.id.tv_user_details_location);
+
+        educationText = (TextView) findViewById(R.id.tv_user_details_education);
     }
 
     public void setUser(final User user) {
@@ -80,6 +84,7 @@ public class UserDetailsView extends ScrollView {
         setJingleBar(user.percent);
         setWhatIfWe(user.whatIfWe);
         setLocation(user.getCapitalizedCity());
+        setEducation(user.education);
     }
 
     private void setPhotos(final User user) {
@@ -130,5 +135,9 @@ public class UserDetailsView extends ScrollView {
 
     private void setLocation(String city) {
         locationText.setText(city);
+    }
+
+    private void setEducation(String education) {
+        educationText.setText(education);
     }
 }

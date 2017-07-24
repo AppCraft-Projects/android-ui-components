@@ -18,6 +18,8 @@ public final class User implements Cloneable {
     public String city;
     private transient String capitalizedCity;
 
+    public String education;
+
     public String getCapitalizedCity() {
         if (capitalizedCity == null) {
             StringBuilder sb = new StringBuilder(city);

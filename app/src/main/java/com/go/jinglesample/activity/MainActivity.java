@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
         user.city = "Budapest";
 
+        user.education = "ETEL, Sociology";
+
         return user;
     }
 
