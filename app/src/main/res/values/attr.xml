@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <declare-styleable name="CornerView">
+        <attr name="cornerColor" format="color"/>
+        <attr name="direction" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="RoundedCornerView">
+        <attr name="topLeftCornerRadius" format="dimension"/>
+        <attr name="topRightCornerRadius" format="dimension"/>
+        <attr name="bottomRightCornerRadius" format="dimension"/>
+        <attr name="bottomLeftCornerRadius" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="BorderCircularImageView">
+        <attr name="imageBorderWidth" format="dimension"/>
+        <attr name="imageBorderColor" format="color"/>
+    </declare-styleable>
+</resources>
