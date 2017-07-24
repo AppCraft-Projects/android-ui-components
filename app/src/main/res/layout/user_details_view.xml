@@ -60,7 +60,17 @@
             android:gravity="center_horizontal"
             android:maxLines="2"/>
 
-        <!-- PercentProgressBar -->
+        <com.go.jinglesample.widget.PercentProgressBar
+            android:id="@+id/pb_details_meter"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:progressDrawable="@drawable/jingle_meter_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginBottom="@dimen/margin8"
+            android:layout_marginLeft="@dimen/margin16"
+            android:layout_marginRight="@dimen/margin16"
+            android:layout_marginTop="@dimen/margin16"
+            android:visibility="gone"/>
 
         <!-- WhatIfFieldView -->
 

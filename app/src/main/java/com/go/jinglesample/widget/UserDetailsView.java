@@ -24,7 +24,10 @@ public class UserDetailsView extends ScrollView {
     UserPhotoView thirdPhoto;
 
     TextView nameText;
+
     TextView jobCompanyText;
+
+    PercentProgressBar percentProgressBar;
 
     public UserDetailsView(Context context) {
         super(context);
@@ -54,7 +57,10 @@ public class UserDetailsView extends ScrollView {
         thirdPhoto  = (UserPhotoView) findViewById(R.id.upv_user_details_3);
 
         nameText     = (TextView) findViewById(R.id.tv_user_details_name);
+
         jobCompanyText  = (TextView) findViewById(R.id.tv_user_details_job);
+
+        percentProgressBar = (PercentProgressBar) findViewById(R.id.pb_details_meter);
     }
 
     public void setUser(final User user) {
@@ -63,6 +69,7 @@ public class UserDetailsView extends ScrollView {
         setPhotos(user);
         setName(user);
         setJob(user);
+        setJingleBar(user.percent);
     }
 
     private void setPhotos(final User user) {
@@ -99,5 +106,11 @@ public class UserDetailsView extends ScrollView {
                 .append(user.company);
 
         jobCompanyText.setText(jobText);
+    }
+
+    public void setJingleBar(final int percent) {
+        percentProgressBar.setVisibility(View.VISIBLE);
+        percentProgressBar.setMax(100);
+        percentProgressBar.setProgress(percent);
     }
 }

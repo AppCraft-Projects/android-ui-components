@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         user.job = "HR asszisztens";
         user.company = "BigCommerce Kft.";
 
+        user.percent = 75;
+
         return user;
     }
 
