@@ -1,9 +1,11 @@
-package com.go.jinglesample;
+package com.go.jinglesample.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
+
+import com.go.jinglesample.R;
 
 public class UserDetailsView extends ScrollView {
 
