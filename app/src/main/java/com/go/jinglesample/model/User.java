@@ -1,11 +1,13 @@
 package com.go.jinglesample.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public final class User implements Cloneable {
     public String first_name;
     public int age;
     public List<Photo> photos;
+    public String city;
 
     public static User clone(final User from) {
         try {

@@ -12,6 +12,7 @@ import com.go.jinglesample.model.User;
 import com.go.jinglesample.widget.UserDetailsView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,19 +34,24 @@ public class MainActivity extends AppCompatActivity {
     private User getMockUser() {
         User user = new User();
 
-        Photo photo = new Photo();
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.photo_placeholder);
-        photo.setBitmap(bitmap);
-
-        user.photos = new ArrayList<Photo>();
-        user.photos.add(photo);
-        user.photos.add(photo);
-        user.photos.add(photo);
-        user.photos.add(photo);
+        Photo coverPhoto = getPhoto(R.drawable.cover_photo);
+        Photo photo1 = getPhoto(R.drawable.photo1);
+        Photo photo2 = getPhoto(R.drawable.photo2);
+        Photo photo3 = getPhoto(R.drawable.photo3);
+        user.photos = new ArrayList<Photo>(Arrays.asList(coverPhoto, photo1, photo2, photo3));
 
         user.first_name = "Gabor";
         user.age = 35;
+        user.city = "Budapest";
 
         return user;
+    }
+
+    @NonNull
+    private Photo getPhoto(int resId) {
+        Photo photo = new Photo();
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
+        photo.setBitmap(bitmap);
+        return photo;
     }
 }
