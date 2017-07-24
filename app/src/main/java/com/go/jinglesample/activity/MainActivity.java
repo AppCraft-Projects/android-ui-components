@@ -21,6 +21,6 @@ public class MainActivity extends AppCompatActivity {
         Photo photo = new Photo();
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.photo_placeholder);
         photo.setBitmap(bitmap);
-        userDetailsView.setCoverPhoto(photo);
+        userDetailsView.setPhotos(photo);
     }
 }

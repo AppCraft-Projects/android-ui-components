@@ -12,6 +12,9 @@ import com.go.jinglesample.R;
 public class UserDetailsView extends ScrollView {
 
     UserPhotoView coverPhoto;
+    UserPhotoView firstPhoto;
+    UserPhotoView secondPhoto;
+    UserPhotoView thirdPhoto;
 
     public UserDetailsView(Context context) {
         super(context);
@@ -36,11 +39,22 @@ public class UserDetailsView extends ScrollView {
         View.inflate(context, R.layout.user_details_view, this);
 
         coverPhoto = (UserPhotoView) findViewById(R.id.upv_user_details_cover);
+        firstPhoto = (UserPhotoView) findViewById(R.id.upv_user_details_1);
+        secondPhoto = (UserPhotoView) findViewById(R.id.upv_user_details_2);
+        thirdPhoto = (UserPhotoView) findViewById(R.id.upv_user_details_3);
     }
 
-    public void setCoverPhoto(final Photo photo) {
+    public void setPhotos(final Photo photo) {
         coverPhoto.setType(UserPhotoView.TYPE_COVER);
         coverPhoto.setPhoto(photo);
-        coverPhoto.setTag(TextUtils.isEmpty(photo.image_url) ? -1 : 0);
+
+        firstPhoto.setType(UserPhotoView.TYPE_NORMAL);
+        firstPhoto.setPhoto(photo);
+
+        secondPhoto.setType(UserPhotoView.TYPE_NORMAL);
+        secondPhoto.setPhoto(photo);
+
+        thirdPhoto.setType(UserPhotoView.TYPE_NORMAL);
+        thirdPhoto.setPhoto(photo);
     }
 }
