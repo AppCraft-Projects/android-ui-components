@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         user.first_name = "Gabor";
         user.age = 35;
-        user.city = "Budapest";
 
         user.job = "HR asszisztens";
         user.company = "BigCommerce Kft.";
@@ -50,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         user.percent = 75;
 
         user.whatIfWe = "Look for some tiny, crazy, hidden places, and have some quality time together.";
+
+        user.city = "Budapest";
 
         return user;
     }

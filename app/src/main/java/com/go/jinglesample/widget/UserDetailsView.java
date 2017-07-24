@@ -31,6 +31,8 @@ public class UserDetailsView extends ScrollView {
 
     WhatIfWeFieldView whatIfWeFieldView;
 
+    TextView locationText;
+
     public UserDetailsView(Context context) {
         super(context);
         init(context);
@@ -65,6 +67,8 @@ public class UserDetailsView extends ScrollView {
         percentProgressBar = (PercentProgressBar) findViewById(R.id.pb_details_meter);
 
         whatIfWeFieldView = (WhatIfWeFieldView) findViewById(R.id.wifwv_user_details);
+
+        locationText = (TextView) findViewById(R.id.tv_user_details_location);
     }
 
     public void setUser(final User user) {
@@ -75,6 +79,7 @@ public class UserDetailsView extends ScrollView {
         setJob(user);
         setJingleBar(user.percent);
         setWhatIfWe(user.whatIfWe);
+        setLocation(user.getCapitalizedCity());
     }
 
     private void setPhotos(final User user) {
@@ -121,5 +126,9 @@ public class UserDetailsView extends ScrollView {
 
     private void setWhatIfWe(String whatIfWe) {
         this.whatIfWeFieldView.setBodyText(whatIfWe);
+    }
+
+    private void setLocation(String city) {
+        locationText.setText(city);
     }
 }

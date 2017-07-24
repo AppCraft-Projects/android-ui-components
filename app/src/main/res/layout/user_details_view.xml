@@ -81,7 +81,19 @@
             android:layout_marginRight="@dimen/margin16"
             android:layout_marginTop="@dimen/margin4"/>
 
-        <!-- TypefaceTextView -->
+        <TextView
+            android:id="@+id/tv_user_details_location"
+            style="@style/Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="16dp"
+            android:drawableLeft="@drawable/ic_location_on_white_24dp"
+            android:drawableTint="@color/grey"
+            android:gravity="center_vertical"
+            android:textColor="@color/black87"/>
 
         <!-- EducationFieldView -->
 

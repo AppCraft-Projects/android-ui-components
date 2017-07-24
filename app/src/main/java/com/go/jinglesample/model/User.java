@@ -16,6 +16,16 @@ public final class User implements Cloneable {
     public String whatIfWe;
 
     public String city;
+    private transient String capitalizedCity;
+
+    public String getCapitalizedCity() {
+        if (capitalizedCity == null) {
+            StringBuilder sb = new StringBuilder(city);
+            sb.setCharAt(0, Character.toUpperCase(sb.charAt(0)));
+            capitalizedCity = sb.toString();
+        }
+        return capitalizedCity;
+    }
 
     public static User clone(final User from) {
         try {
