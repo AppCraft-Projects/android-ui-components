@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         user.percent = 75;
 
+        user.whatIfWe = "Look for some tiny, crazy, hidden places, and have some quality time together.";
+
         return user;
     }
 

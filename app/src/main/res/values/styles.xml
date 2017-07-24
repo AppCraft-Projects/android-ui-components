@@ -16,4 +16,9 @@
         <item name="android:textSize">22sp</item>
     </style>
 
+    <style name="Header">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">medium</item>
+    </style>
+
 </resources>

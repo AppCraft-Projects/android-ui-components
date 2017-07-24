@@ -11,8 +11,11 @@ public final class User implements Cloneable {
     public String job;
     public String company;
 
-    public String city;
     public int percent;
+
+    public String whatIfWe;
+
+    public String city;
 
     public static User clone(final User from) {
         try {

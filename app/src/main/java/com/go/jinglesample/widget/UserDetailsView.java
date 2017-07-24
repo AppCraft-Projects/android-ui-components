@@ -29,6 +29,8 @@ public class UserDetailsView extends ScrollView {
 
     PercentProgressBar percentProgressBar;
 
+    WhatIfWeFieldView whatIfWeFieldView;
+
     public UserDetailsView(Context context) {
         super(context);
         init(context);
@@ -61,6 +63,8 @@ public class UserDetailsView extends ScrollView {
         jobCompanyText  = (TextView) findViewById(R.id.tv_user_details_job);
 
         percentProgressBar = (PercentProgressBar) findViewById(R.id.pb_details_meter);
+
+        whatIfWeFieldView = (WhatIfWeFieldView) findViewById(R.id.wifwv_user_details);
     }
 
     public void setUser(final User user) {
@@ -70,6 +74,7 @@ public class UserDetailsView extends ScrollView {
         setName(user);
         setJob(user);
         setJingleBar(user.percent);
+        setWhatIfWe(user.whatIfWe);
     }
 
     private void setPhotos(final User user) {
@@ -112,5 +117,9 @@ public class UserDetailsView extends ScrollView {
         percentProgressBar.setVisibility(View.VISIBLE);
         percentProgressBar.setMax(100);
         percentProgressBar.setProgress(percent);
+    }
+
+    private void setWhatIfWe(String whatIfWe) {
+        this.whatIfWeFieldView.setBodyText(whatIfWe);
     }
 }

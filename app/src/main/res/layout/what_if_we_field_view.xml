@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        style="@style/Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_hangouts_red_24dp"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:text="@string/what_if_we"
+        android:textStyle="bold"
+        android:textColor="@color/red_pale"/>
+
+    <TextView
+        android:id="@+id/tv_what_if_body"
+        style="@style/Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</merge>
