@@ -8,6 +8,7 @@
     <!-- Jingle colors -->
     <color name="black54">#8A000000</color>
     <color name="black87">#DE000000</color>
+    <color name="black_text">#202020</color>
 
     <color name="grey_progress_bar">#d8d8d8</color>
     <color name="grey">#858E99</color>
