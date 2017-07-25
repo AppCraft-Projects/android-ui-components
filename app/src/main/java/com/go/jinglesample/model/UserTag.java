@@ -1,5 +1,8 @@
 package com.go.jinglesample.model;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class UserTag implements Cloneable {
     public String id;
     public String name;

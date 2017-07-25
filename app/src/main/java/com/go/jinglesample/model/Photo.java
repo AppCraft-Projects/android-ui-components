@@ -2,6 +2,9 @@ package com.go.jinglesample.model;
 
 import android.graphics.Bitmap;
 
+import org.parceler.Parcel;
+
+@Parcel
 public final class Photo implements Cloneable {
     public int position;
     public String id;

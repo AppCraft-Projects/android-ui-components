@@ -1,7 +1,10 @@
 package com.go.jinglesample.model;
 
+import org.parceler.Parcel;
+
 import java.util.List;
 
+@Parcel
 public final class User implements Cloneable {
     public List<Photo> photos;
 

@@ -2,6 +2,9 @@ package com.go.jinglesample.model;
 
 import android.graphics.Bitmap;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class MutualFriend implements Cloneable {
     public String first_name;
     public Bitmap main_image;
