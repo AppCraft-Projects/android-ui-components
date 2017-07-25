@@ -12,8 +12,10 @@ import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.go.jinglesample.R;
 import com.go.jinglesample.adapter.StageAdapter;
 import com.go.jinglesample.asynctask.StageAsyncTask;
-import com.go.jinglesample.callbacks.StageViewCallback;
+import com.go.jinglesample.callback.StageViewCallback;
+import com.go.jinglesample.constants.Constants;
 import com.go.jinglesample.model.User;
+import com.go.jinglesample.service.StageService;
 
 import java.util.List;
 
@@ -59,15 +61,12 @@ public class UserListView extends FrameLayout implements StageViewCallback {
             }
         };
         userList.addItemDecoration(paddingDecoration);
-
-        StageAsyncTask task = new StageAsyncTask();
-        task.setCallback(this);
-        task.execute("http://private-52c03-jingleapi.apiary-mock.com/stage");
     }
 
-    public void setUserList(List<User> users) {
-        StageAdapter stageAdapter = new StageAdapter(users);
-        userList.setAdapter(stageAdapter);
+    public void loadUsers() {
+        StageService service = new StageService();
+        service.setCallback(this);
+        service.loadUsers();
     }
 
     @Override

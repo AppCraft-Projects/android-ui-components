@@ -1,4 +1,4 @@
-package com.go.jinglesample.callbacks;
+package com.go.jinglesample.callback;
 
 import com.go.jinglesample.model.User;
 

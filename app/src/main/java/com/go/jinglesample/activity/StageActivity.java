@@ -32,6 +32,7 @@ public class StageActivity extends AppCompatActivity {
 
         setTitle(getString(R.string.stage_title));
         UserListView userListView = (UserListView) findViewById(R.id.ulv_stage);
+        userListView.loadUsers();
     }
 
     @Override

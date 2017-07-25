@@ -2,7 +2,8 @@ package com.go.jinglesample.asynctask;
 
 import android.os.AsyncTask;
 
-import com.go.jinglesample.callbacks.StageViewCallback;
+import com.go.jinglesample.callback.StageServiceCallback;
+import com.go.jinglesample.callback.StageViewCallback;
 import com.go.jinglesample.model.User;
 import com.google.gson.Gson;
 
@@ -19,9 +20,9 @@ import java.util.List;
 
 public class StageAsyncTask extends AsyncTask<String, String, User[]> {
 
-    StageViewCallback callback;
+    StageServiceCallback callback;
 
-    public void setCallback(StageViewCallback callback) {
+    public void setCallback(StageServiceCallback callback) {
         this.callback = callback;
     }
 
@@ -56,7 +57,7 @@ public class StageAsyncTask extends AsyncTask<String, String, User[]> {
     @Override protected void onPostExecute(final User[] tempUsers) {
         super.onPostExecute(tempUsers);
         List<User> users = new ArrayList<>(Arrays.asList(tempUsers));
-        callback.populateUser(users);
+        callback.downloadSuccess(users);
     }
 
     private String streamToString(final InputStream stream) {
