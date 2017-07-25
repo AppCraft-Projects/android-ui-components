@@ -2,6 +2,7 @@ package com.go.jinglesample.widget;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
@@ -48,6 +49,8 @@ public class UserDetailsView extends ScrollView {
     TextView mutualFriendsTitle;
     RecyclerView mutualFriendsView;
 
+    CardView mutualFriendsCardView;
+
     public UserDetailsView(Context context) {
         super(context);
         init(context);
@@ -91,6 +94,7 @@ public class UserDetailsView extends ScrollView {
 
         mutualFriendsTitle = (TextView) findViewById(R.id.tv_user_detail_mutual_title);
         mutualFriendsView = (RecyclerView) findViewById(R.id.rv_user_detail_mutual_friends);
+        mutualFriendsCardView = (CardView) findViewById(R.id.cv_user_details_mutual_friends);
     }
 
     public void setUser(final User user) {
@@ -177,7 +181,7 @@ public class UserDetailsView extends ScrollView {
             mutualFriendsView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
             mutualFriendsView.setAdapter(new CircleImageTextAdapter(mutualImageTextItemList));
         } else {
-            // TODO: Hide mutual friends
+            mutualFriendsCardView.setVisibility(View.GONE);
         }
     }
 }
