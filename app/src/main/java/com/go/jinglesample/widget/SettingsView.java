@@ -3,6 +3,8 @@ package com.go.jinglesample.widget;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.SwitchCompat;
 import android.util.AttributeSet;
 import android.view.View;
@@ -73,7 +75,9 @@ public class SettingsView extends FrameLayout {
     public void setupViewDefaults(User user) {
         this.user = user;
 
-        userImage.setImage(user.photos.get(1).getBitmap());
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), user.photos.get(1).getBitmap());
+        userImage.setImage(bitmap);
+
         String versionName = AndroidUtils.getVersionName(getContext());
         versionText.setText(getResources().getString(R.string.settings_version).replace("{0}", versionName));
         jingleToggle.setChecked(user.jingleNotification);

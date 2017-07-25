@@ -2,6 +2,8 @@ package com.go.jinglesample.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -104,7 +106,8 @@ public class StageUserItemView extends CardView {
         userImage.getLayoutParams().height = imageHeight;
         shadowView.getLayoutParams().height = shadowHeight;
 
-        userImage.setImageBitmap(jingleUser.photos.get(0).getBitmap());
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), jingleUser.photos.get(0).getBitmap());
+        userImage.setImageBitmap(bitmap);
 
         nameAgeText.setText(jingleUser.first_name + ", " + jingleUser.age);
 

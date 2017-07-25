@@ -7,20 +7,21 @@ import org.parceler.Parcel;
 @Parcel
 public final class Photo implements Cloneable {
     public int position;
+    public String image_url;
     public String id;
 
-    private Bitmap bitmap;
+    private int bitmapResId;
+    private boolean toDelete;
 
-    public String image_url;
+    private String fullImageUrl;
 
-    private transient String fullImageUrl;
-
-    public Bitmap getBitmap() {
-        return bitmap;
+    public int getBitmap() {
+        return bitmapResId;
     }
 
-    public void setBitmap(final Bitmap bitmap) {
-        this.bitmap = bitmap;
+    public void setBitmap(final int resId) {
+        this.bitmapResId = resId;
+        toDelete = false;
     }
 
     public static Photo clone(final Photo from) {

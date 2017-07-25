@@ -82,8 +82,9 @@ public class UserPhotoView extends FrameLayout {
             setType(TYPE_NORMAL);
             lp = (LinearLayout.LayoutParams) getLayoutParams();
         }
-        if (photo.getBitmap() != null) {
-            photoImage.setBitmap(photo.getBitmap());
+        if (photo.getBitmap() != -1) {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), photo.getBitmap());
+            photoImage.setBitmap(bitmap);
         } else {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.photo_placeholder);
             photoImage.setBitmap(bitmap);

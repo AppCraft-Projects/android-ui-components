@@ -41,8 +41,7 @@ public class UserDetailsActivity extends AppCompatActivity {
         UserDetailsView userDetailsView = (UserDetailsView) findViewById(R.id.udv_user_details);
 
         Photo photo = new Photo();
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.photo_placeholder);
-        photo.setBitmap(bitmap);
+        photo.setBitmap(R.drawable.photo_placeholder);
         User user = getMockUser();
         userDetailsView.setUser(user);
     }
@@ -51,11 +50,7 @@ public class UserDetailsActivity extends AppCompatActivity {
     private User getMockUser() {
         User user = new User();
 
-        Photo coverPhoto = getPhoto(R.drawable.cover_photo);
-        Photo photo1 = getPhoto(R.drawable.photo1);
-        Photo photo2 = getPhoto(R.drawable.photo2);
-        Photo photo3 = getPhoto(R.drawable.photo3);
-        user.photos = new ArrayList<Photo>(Arrays.asList(coverPhoto, photo1, photo2, photo3));
+        user.photos = getMockPhotos();
 
         user.first_name = "Gabor";
         user.age = 35;
@@ -78,12 +73,19 @@ public class UserDetailsActivity extends AppCompatActivity {
         return user;
     }
 
-    @NonNull
-    private Photo getPhoto(int resId) {
-        Photo photo = new Photo();
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
-        photo.setBitmap(bitmap);
-        return photo;
+    private List<Photo> getMockPhotos() {
+        Photo coverPhoto = new Photo();
+        Photo photo1 = new Photo();
+        Photo photo2 = new Photo();
+        Photo photo3 = new Photo();
+
+        coverPhoto.setBitmap(R.drawable.cover_photo);
+        photo1.setBitmap(R.drawable.photo1);
+        photo2.setBitmap(R.drawable.photo2);
+        photo3.setBitmap(R.drawable.photo3);
+
+        Photo[] photos = new Photo[] { coverPhoto, photo1, photo2, photo3 };
+        return new ArrayList<>(Arrays.asList(photos));
     }
 
     private ArrayList<UserTag> getMockUserTags() {
