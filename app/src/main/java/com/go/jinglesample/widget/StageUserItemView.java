@@ -3,6 +3,7 @@ package com.go.jinglesample.widget;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.support.v7.widget.CardView;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.go.jinglesample.R;
 import com.go.jinglesample.model.User;
+import com.go.jinglesample.model.UserStatus;
 
 public class StageUserItemView extends CardView {
 
@@ -98,6 +100,62 @@ public class StageUserItemView extends CardView {
     }
 
     public void setupView() {
+        userImage.getLayoutParams().height = imageHeight;
+        shadowView.getLayoutParams().height = shadowHeight;
 
+        userImage.setImageBitmap(jingleUser.photos.get(0).getBitmap());
+
+        nameAgeText.setText(jingleUser.first_name + ", " + jingleUser.age);
+
+        final boolean jobVisibility = !TextUtils.isEmpty(jingleUser.job);
+        jobText.setText(jingleUser.job);
+        jobText.setVisibility(jobVisibility ? View.VISIBLE : View.GONE);
+
+        whatIfText.setText(TextUtils.isEmpty(jingleUser.whatIfWe) ? "" : jingleUser.whatIfWe);
+
+        meterProgress.setMax(100);
+        meterProgress.setProgress(Math.round(jingleUser.percent));
+
+        setupMutualFriendsAndTags();
+        setupStageItemButton();
+    }
+
+    private void setupMutualFriendsAndTags() {
+        if (jingleUser.mutualFriends== null || jingleUser.mutualFriends.size() == 0) {
+            mutualText.setText("0");
+            mutualText.setEnabled(false);
+            mutualImage.setEnabled(false);
+        } else {
+            mutualText.setText(Integer.toString(jingleUser.mutualFriends.size()));
+            mutualText.setEnabled(true);
+            mutualImage.setEnabled(true);
+        }
+
+        int commonLikesCount = 0;
+        if (jingleUser.commonLikes != null && jingleUser.commonLikes.size() > 0) {
+            commonLikesCount = jingleUser.commonLikes.size();
+        }
+        tagsText.setText(String.valueOf(commonLikesCount));
+        if (commonLikesCount > 0) {
+            tagsText.setEnabled(true);
+            tagsImage.setEnabled(true);
+        } else {
+            tagsText.setEnabled(false);
+            tagsImage.setEnabled(false);
+        }
+    }
+
+    private void setupStageItemButton() {
+        switch (jingleUser.status) {
+            case UserStatus.DEFAULT:
+                stageItemButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_like_80dp));
+                break;
+            case UserStatus.LIKED:
+                stageItemButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_wait_blue_80dp));
+                break;
+            case UserStatus.JINGLE:
+                stageItemButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_chat_blue_80dp));
+                break;
+        }
     }
 }
