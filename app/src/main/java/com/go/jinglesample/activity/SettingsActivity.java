@@ -25,6 +25,8 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        setTitle(R.string.settings_title);
+
         User user = getMockUser();
 
         SettingsView settingsView = (SettingsView) findViewById(R.id.sv_settings);

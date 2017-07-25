@@ -18,4 +18,9 @@
     <string name="settings_delete_profile">Delete Profile</string>
     <string name="settings_version">Version {0}</string>
     <string name="save_settings">Save your settings</string>
+
+    <string name="stage_title">Stage</string>
+    <string name="details_title">Details</string>
+    <string name="settings_title">Settings</string>
+
 </resources>

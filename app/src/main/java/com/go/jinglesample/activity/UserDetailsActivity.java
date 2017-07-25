@@ -1,5 +1,7 @@
 package com.go.jinglesample.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
@@ -19,10 +21,18 @@ import java.util.List;
 
 public class UserDetailsActivity extends AppCompatActivity {
 
+    public static void startActivity(final Context context) {
+        Intent intent = new Intent(context, UserDetailsActivity.class);
+        // intent.putExtra(EXTRA_USER, Parcels.wrap(user));
+        context.startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_details);
+
+        setTitle(getString(R.string.details_title));
 
         UserDetailsView userDetailsView = (UserDetailsView) findViewById(R.id.udv_user_details);
 

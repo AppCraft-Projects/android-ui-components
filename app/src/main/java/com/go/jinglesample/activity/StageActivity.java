@@ -26,6 +26,8 @@ public class StageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stage);
 
+        setTitle(getString(R.string.stage_title));
+
         List<User> users = getMockUsers();
 
         UserListView userListView = (UserListView) findViewById(R.id.ulv_stage);

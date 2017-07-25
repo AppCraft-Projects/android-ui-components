@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.go.jinglesample.R;
+import com.go.jinglesample.activity.UserDetailsActivity;
 import com.go.jinglesample.model.User;
 import com.go.jinglesample.model.UserStatus;
 
@@ -118,6 +119,13 @@ public class StageUserItemView extends CardView {
 
         setupMutualFriendsAndTags();
         setupStageItemButton();
+
+        setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UserDetailsActivity.startActivity(getContext());
+            }
+        });
     }
 
     private void setupMutualFriendsAndTags() {
