@@ -2,39 +2,38 @@ package com.go.jinglesample.activity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
+import com.go.jinglesample.R;
 import com.go.jinglesample.model.MutualFriend;
 import com.go.jinglesample.model.Photo;
-import com.go.jinglesample.R;
 import com.go.jinglesample.model.User;
+import com.go.jinglesample.model.UserStatus;
 import com.go.jinglesample.model.UserTag;
 import com.go.jinglesample.widget.UserDetailsView;
+import com.go.jinglesample.widget.UserListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class UserDetailsActivity extends AppCompatActivity {
+public class StageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_details);
+        setContentView(R.layout.activity_stage);
 
-        UserDetailsView userDetailsView = (UserDetailsView) findViewById(R.id.udv_user_details);
+        List<User> users = getMockUsers();
 
-        Photo photo = new Photo();
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.photo_placeholder);
-        photo.setBitmap(bitmap);
-        User user = getMockUser();
-        userDetailsView.setUser(user);
+        UserListView userListView = (UserListView) findViewById(R.id.ulv_stage);
+        userListView.setUserList(users);
     }
 
     @NonNull
-    private User getMockUser() {
+    private List<User> getMockUsers() {
         User user = new User();
 
         Photo coverPhoto = getPhoto(R.drawable.cover_photo);
@@ -61,7 +60,11 @@ public class UserDetailsActivity extends AppCompatActivity {
 
         user.mutualFriends = getMockMutualFriends();
 
-        return user;
+        user.commonLikes = new ArrayList<>(Arrays.asList("Biciklizés", "Borozás", "Gurmankodás"));
+
+        user.status = UserStatus.JINGLE;
+
+        return new ArrayList<>(Arrays.asList(user)) ;
     }
 
     @NonNull

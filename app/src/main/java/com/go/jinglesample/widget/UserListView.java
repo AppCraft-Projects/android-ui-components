@@ -1,6 +1,8 @@
 package com.go.jinglesample.widget;
 
 import android.content.Context;
+import android.graphics.Rect;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
@@ -40,6 +42,21 @@ public class UserListView extends FrameLayout {
         userList = (RecyclerView) findViewById(R.id.rv_stage_list);
         loadingView = (FrameLayout) findViewById(R.id.fl_loading);
         circularProgressView = (CircularProgressView) findViewById(R.id.progress_view);
+
+        userList.setHasFixedSize(true);
+        userList.setLayoutManager(new LinearLayoutManager(context));
+
+        final int itemPadding = (int) getResources().getDimension(R.dimen.margin8);
+        final RecyclerView.ItemDecoration paddingDecoration = new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                outRect.left += itemPadding;
+                outRect.right += itemPadding;
+                outRect.top += itemPadding;
+                outRect.bottom += itemPadding;
+            }
+        };
+        userList.addItemDecoration(paddingDecoration);
     }
 
     public void setUserList(List<User> users) {

@@ -37,6 +37,7 @@ public class StageAdapter extends RecyclerView.Adapter<StageAdapter.ViewHolder> 
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
+
         final StageUserItemView stageItemView;
 
         ViewHolder(final View itemView) {
