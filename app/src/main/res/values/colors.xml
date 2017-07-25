@@ -21,4 +21,7 @@
     <color name="red_dark">#DA093A</color>
     <color name="red_status_bar">#ca3e46</color>
 
+    <color name="user_details_background">#ededed</color>
+    <color name="user_details_card_background_white">#fdfdfd</color>
+
 </resources>

@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.go.jinglesample.model.MutualFriend;
 import com.go.jinglesample.model.Photo;
 import com.go.jinglesample.R;
 import com.go.jinglesample.model.User;
@@ -14,6 +15,7 @@ import com.go.jinglesample.widget.UserDetailsView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
         user.aboutTags = getMockUserTags();
 
+        user.mutualFriends = getMockMutualFriends();
+
         return user;
     }
 
@@ -85,5 +89,21 @@ public class MainActivity extends AppCompatActivity {
         userTag5.name = "Romantikus vacsorák";
 
         return new ArrayList<>(Arrays.asList(userTag1, userTag2, userTag3, userTag4, userTag5));
+    }
+
+    private List<MutualFriend> getMockMutualFriends() {
+        MutualFriend friend1 = new MutualFriend();
+        friend1.first_name = "Gerda";
+        friend1.main_image = BitmapFactory.decodeResource(getResources(), R.drawable.photo1);
+
+        MutualFriend friend2 = new MutualFriend();
+        friend2.first_name = "Zsuzsa";
+        friend2.main_image = BitmapFactory.decodeResource(getResources(), R.drawable.photo2);
+
+        MutualFriend friend3 = new MutualFriend();
+        friend3.first_name = "Zsófi";
+        friend3.main_image = BitmapFactory.decodeResource(getResources(), R.drawable.photo3);
+
+        return new ArrayList<>(Arrays.asList(friend1, friend2, friend3));
     }
 }

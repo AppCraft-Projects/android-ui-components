@@ -4,140 +4,164 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusableInTouchMode="true"
         android:orientation="vertical"
-        android:paddingBottom="16dp">
+        android:background="@color/user_details_background">
 
-        <com.go.jinglesample.widget.UserPhotoView
-            android:id="@+id/upv_user_details_cover"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <LinearLayout
-            android:id="@+id/all_photo_layout"
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_user_details_basics"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="4dp"
-            android:orientation="horizontal">
+            android:layout_marginBottom="@dimen/margin16"
+            android:background="@color/user_details_card_background_white">
 
-            <com.go.jinglesample.widget.UserPhotoView
-                android:id="@+id/upv_user_details_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <com.go.jinglesample.widget.UserPhotoView
-                android:id="@+id/upv_user_details_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <com.go.jinglesample.widget.UserPhotoView
-                android:id="@+id/upv_user_details_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_user_details_name"
-            style="@style/Headline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
-            android:gravity="center_horizontal"
-            android:textColor="@color/black87"/>
-
-        <TextView
-            android:id="@+id/tv_user_details_job"
-            style="@style/Jobline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="4dp"
-            android:gravity="center_horizontal"
-            android:maxLines="2"/>
-
-        <com.go.jinglesample.widget.PercentProgressBar
-            android:id="@+id/pb_details_meter"
-            style="@android:style/Widget.ProgressBar.Horizontal"
-            android:progressDrawable="@drawable/jingle_meter_progress_bar"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginBottom="@dimen/margin8"
-            android:layout_marginLeft="@dimen/margin16"
-            android:layout_marginRight="@dimen/margin16"
-            android:layout_marginTop="@dimen/margin16"
-            android:visibility="gone"/>
-
-        <com.go.jinglesample.widget.WhatIfWeFieldView
-            android:id="@+id/wifwv_user_details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin8"
-            android:layout_marginLeft="@dimen/margin16"
-            android:layout_marginRight="@dimen/margin16"
-            android:layout_marginTop="@dimen/margin4"/>
-
-        <TextView
-            android:id="@+id/tv_user_details_location"
-            style="@style/Subhead"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:drawablePadding="16dp"
-            android:drawableLeft="@drawable/ic_location_on_white_24dp"
-            android:drawableTint="@color/grey"
-            android:gravity="center_vertical"
-            android:textColor="@color/black87"/>
-
-        <TextView
-            android:id="@+id/tv_user_details_education"
-            style="@style/Subhead"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:drawablePadding="16dp"
-            android:drawableLeft="@drawable/ic_school_white_24dp"
-            android:drawableTint="@color/grey"
-            android:gravity="center_vertical"
-            android:textColor="@color/black87"/>
-
-        <com.go.jinglesample.widget.AboutTagsView
-            android:id="@+id/atv_user_details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_user_detail_mutual_title"
-                style="@style/Body2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin16"
-                android:layout_marginLeft="@dimen/margin16"
-                android:layout_marginTop="@dimen/margin16"
-                android:textColor="@color/grey_description"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_user_detail_mutual_friends"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginLeft="@dimen/margin16"
-                android:layout_marginRight="@dimen/margin16"
-                android:layout_marginTop="@dimen/margin16"
-                android:overScrollMode="never"/>
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical"
+                android:paddingBottom="16dp">
 
+                <com.go.jinglesample.widget.UserPhotoView
+                    android:id="@+id/upv_user_details_cover"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:id="@+id/all_photo_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <com.go.jinglesample.widget.UserPhotoView
+                        android:id="@+id/upv_user_details_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <com.go.jinglesample.widget.UserPhotoView
+                        android:id="@+id/upv_user_details_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <com.go.jinglesample.widget.UserPhotoView
+                        android:id="@+id/upv_user_details_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_user_details_name"
+                    style="@style/Headline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/black87"/>
+
+                <TextView
+                    android:id="@+id/tv_user_details_job"
+                    style="@style/Jobline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_horizontal"
+                    android:maxLines="2"/>
+
+                <com.go.jinglesample.widget.PercentProgressBar
+                    android:id="@+id/pb_details_meter"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:progressDrawable="@drawable/jingle_meter_progress_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginBottom="@dimen/margin8"
+                    android:layout_marginLeft="@dimen/margin16"
+                    android:layout_marginRight="@dimen/margin16"
+                    android:layout_marginTop="@dimen/margin16"
+                    android:visibility="gone"/>
+
+                <com.go.jinglesample.widget.WhatIfWeFieldView
+                    android:id="@+id/wifwv_user_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin8"
+                    android:layout_marginLeft="@dimen/margin16"
+                    android:layout_marginRight="@dimen/margin16"
+                    android:layout_marginTop="@dimen/margin4"/>
+
+                <TextView
+                    android:id="@+id/tv_user_details_location"
+                    style="@style/Subhead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    android:drawablePadding="16dp"
+                    android:drawableLeft="@drawable/ic_location_on_white_24dp"
+                    android:drawableTint="@color/grey"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black87"/>
+
+                <TextView
+                    android:id="@+id/tv_user_details_education"
+                    style="@style/Subhead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    android:drawablePadding="16dp"
+                    android:drawableLeft="@drawable/ic_school_white_24dp"
+                    android:drawableTint="@color/grey"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black87"/>
+
+                <com.go.jinglesample.widget.AboutTagsView
+                    android:id="@+id/atv_user_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_user_details_mutual_friends"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin16"
+            android:background="@color/user_details_card_background_white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_user_detail_mutual_title"
+                    style="@style/Body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin16"
+                    android:layout_marginLeft="@dimen/margin16"
+                    android:layout_marginTop="@dimen/margin16"
+                    android:textColor="@color/grey_description"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_user_detail_mutual_friends"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="@dimen/margin16"
+                    android:layout_marginRight="@dimen/margin16"
+                    android:layout_marginTop="@dimen/margin16"
+                    android:overScrollMode="never"/>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
     </LinearLayout>
 </merge>

@@ -2,4 +2,5 @@
     <string name="app_name">Jingle Sample</string>
     <string name="what_if_we">What if we...</string>
     <string name="about_me">About me</string>
+    <string name="stage_user_details_mutual_title">{0} mutual friends</string>
 </resources>

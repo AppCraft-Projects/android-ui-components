@@ -22,6 +22,8 @@ public final class User implements Cloneable {
 
     public List<UserTag> aboutTags;
 
+    public List<MutualFriend> mutualFriends;
+
     public String getCapitalizedCity() {
         if (capitalizedCity == null) {
             StringBuilder sb = new StringBuilder(city);

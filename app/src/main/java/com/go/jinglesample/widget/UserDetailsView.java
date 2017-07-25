@@ -2,6 +2,8 @@ package com.go.jinglesample.widget;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
@@ -10,11 +12,14 @@ import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.go.jinglesample.adapter.CircleImageTextAdapter;
+import com.go.jinglesample.model.MutualFriend;
 import com.go.jinglesample.model.Photo;
 import com.go.jinglesample.R;
 import com.go.jinglesample.model.User;
 import com.go.jinglesample.model.UserTag;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDetailsView extends ScrollView {
@@ -39,6 +44,9 @@ public class UserDetailsView extends ScrollView {
     TextView educationText;
 
     AboutTagsView aboutTagsView;
+
+    TextView mutualFriendsTitle;
+    RecyclerView mutualFriendsView;
 
     public UserDetailsView(Context context) {
         super(context);
@@ -80,6 +88,9 @@ public class UserDetailsView extends ScrollView {
         educationText = (TextView) findViewById(R.id.tv_user_details_education);
 
         aboutTagsView = (AboutTagsView) findViewById(R.id.atv_user_details);
+
+        mutualFriendsTitle = (TextView) findViewById(R.id.tv_user_detail_mutual_title);
+        mutualFriendsView = (RecyclerView) findViewById(R.id.rv_user_detail_mutual_friends);
     }
 
     public void setUser(final User user) {
@@ -93,6 +104,7 @@ public class UserDetailsView extends ScrollView {
         setLocation(user.getCapitalizedCity());
         setEducation(user.education);
         setAboutTags(user.aboutTags);
+        setMutualFriends(user.mutualFriends);
     }
 
     private void setPhotos(final User user) {
@@ -153,5 +165,19 @@ public class UserDetailsView extends ScrollView {
         this.aboutTagsView.addJingleUserTags(aboutTags);
     }
 
+    private void setMutualFriends(List<MutualFriend> mutualFriends) {
+        if (mutualFriends != null && mutualFriends.size() != 0) {
+            mutualFriendsTitle.setText(getResources().getString(R.string.stage_user_details_mutual_title).replace("{0}", String.valueOf(mutualFriends.size())));
 
+            List<CircleImageTextAdapter.ImageTextItem> mutualImageTextItemList = new ArrayList<>(mutualFriends.size());
+            for (MutualFriend mutualFriend : mutualFriends) {
+                mutualImageTextItemList.add(new CircleImageTextAdapter.ImageTextItem(mutualFriend.first_name, mutualFriend.main_image));
+            }
+            mutualFriendsView.setHasFixedSize(true);
+            mutualFriendsView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+            mutualFriendsView.setAdapter(new CircleImageTextAdapter(mutualImageTextItemList));
+        } else {
+            // TODO: Hide mutual friends
+        }
+    }
 }
