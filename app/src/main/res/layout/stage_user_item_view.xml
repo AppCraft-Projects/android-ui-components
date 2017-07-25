@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin8">
+
+        <ImageView
+            android:id="@+id/iv_stage_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/stage_item_gradient"
+            android:layout_alignBottom="@id/iv_stage_image"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_stage_image"
+            android:layout_marginBottom="@dimen/margin8"
+            android:layout_marginLeft="@dimen/margin16"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_stage_name_age"
+                style="@style/Headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/tv_stage_job_city"
+                style="@style/Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <com.go.jinglesample.widget.PercentProgressBar
+            android:id="@+id/pb_stage_meter"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@id/iv_stage_image"
+            android:layout_margin="@dimen/margin8"
+            android:progressDrawable="@drawable/jingle_meter_progress_bar"
+            style="@android:style/Widget.ProgressBar.Horizontal"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_stage_upper_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/iv_stage_button"
+            android:layout_below="@id/pb_stage_meter">
+
+            <LinearLayout
+                android:id="@+id/ll_quote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_stage_quote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin12"
+                    android:layout_marginRight="@dimen/margin4"
+                    android:src="@drawable/ic_hangouts_red_24dp"/>
+
+                <TextView
+                    android:id="@+id/tv_what_if_text"
+                    style="@style/Body2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/stage_card_header_text_what_if"
+                    android:textColor="@color/red_pale"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_what_if_body_text"
+                style="@style/Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/ll_quote"
+                android:layout_marginLeft="@dimen/margin16"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/black87"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@id/iv_stage_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/pb_stage_meter"
+            android:layout_marginTop="@dimen/margin8"
+            android:layout_marginBottom="@dimen/margin8"
+            android:layout_marginLeft="@dimen/margin16"
+            android:layout_marginRight="@dimen/margin16"
+            android:clickable="true"
+            android:src="@drawable/ic_like_80dp"/>
+
+        <ImageView
+            android:id="@+id/iv_mutual_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_stage_button"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/margin16"/>
+
+        <TextView
+            android:id="@+id/tv_mutual_text"
+            style="@style/Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_stage_button"
+            android:layout_marginLeft="@dimen/margin8"
+            android:layout_toRightOf="@id/iv_mutual_icon"/>
+
+        <ImageView
+            android:id="@+id/iv_tags_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_stage_button"
+            android:layout_toRightOf="@id/tv_mutual_text"
+            android:layout_marginLeft="@dimen/margin24"/>
+
+        <TextView
+            android:id="@+id/tv_tags_text"
+            style="@style/Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_stage_button"
+            android:layout_marginLeft="@dimen/margin8"
+            android:layout_toRightOf="@id/iv_tags_icon"/>
+
+    </RelativeLayout>
+</merge>
