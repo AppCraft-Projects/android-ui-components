@@ -34,6 +34,10 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="ColorSwitchStyle">
+        <item name="colorControlActivated">@color/blue_light</item>
+    </style>
+
     <style name="Body1">
         <item name="android:textSize">14sp</item>
     </style>

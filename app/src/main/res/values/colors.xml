@@ -16,6 +16,9 @@
     <color name="background_grey">#ededed</color>
     <color name="grey_enabled">#6d6d6d</color>
     <color name="grey_disabled">#b5b5b5</color>
+    <color name="grey_divider">#e0e0e0</color>
+
+    <color name="background_white">#fdfdfe</color>
 
     <color name="blue_light">#22A7F0</color>
 

@@ -4,4 +4,16 @@
     <string name="about_me">About me</string>
     <string name="stage_user_details_mutual_title">{0} mutual friends</string>
     <string name="stage_card_header_text_what_if">What if we...</string>
+    <string name="settings_my_profile">My Profile</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_jingle">Jingle</string>
+    <string name="settings_messages">Messages</string>
+    <string name="settings_vibrate">Vibrate</string>
+    <string name="settings_rate">Rate</string>
+    <string name="settings_contact">Contact</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_privacy_policy">Privacy Policy</string>
+    <string name="settings_terms">Terms of Services</string>
+    <string name="settings_sign_out">Sign Out</string>
+    <string name="settings_delete_profile">Delete Profile</string>
 </resources>
