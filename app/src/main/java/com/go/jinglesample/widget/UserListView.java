@@ -11,11 +11,13 @@ import android.widget.FrameLayout;
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.go.jinglesample.R;
 import com.go.jinglesample.adapter.StageAdapter;
+import com.go.jinglesample.asynctask.StageAsyncTask;
+import com.go.jinglesample.callbacks.StageViewCallback;
 import com.go.jinglesample.model.User;
 
 import java.util.List;
 
-public class UserListView extends FrameLayout {
+public class UserListView extends FrameLayout implements StageViewCallback {
 
     RecyclerView userList;
     FrameLayout loadingView;
@@ -57,9 +59,19 @@ public class UserListView extends FrameLayout {
             }
         };
         userList.addItemDecoration(paddingDecoration);
+
+        StageAsyncTask task = new StageAsyncTask();
+        task.setCallback(this);
+        task.execute("http://private-52c03-jingleapi.apiary-mock.com/stage");
     }
 
     public void setUserList(List<User> users) {
+        StageAdapter stageAdapter = new StageAdapter(users);
+        userList.setAdapter(stageAdapter);
+    }
+
+    @Override
+    public void populateUser(final List<User> users) {
         StageAdapter stageAdapter = new StageAdapter(users);
         userList.setAdapter(stageAdapter);
     }

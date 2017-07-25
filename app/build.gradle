@@ -37,5 +37,6 @@ dependencies {
     compile "com.github.rahatarmanahmed:circularprogressview:2.4.0"
     apt "org.parceler:parceler:1.0.4"
     compile "org.parceler:parceler-api:1.0.4"
+    compile 'com.google.code.gson:gson:2.7'
     testCompile 'junit:junit:4.12'
 }

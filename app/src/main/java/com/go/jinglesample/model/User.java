@@ -1,54 +1,50 @@
 package com.go.jinglesample.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.parceler.Parcel;
+import org.parceler.ParcelPropertyConverter;
 
 import java.util.List;
 
 @Parcel
 public final class User implements Cloneable {
-    public List<Photo> photos;
-
+    @SerializedName("first_name")
     public String first_name;
+    @SerializedName("age")
     public int age;
-
+    @SerializedName("job")
     public String job;
+    @SerializedName("company")
     public String company;
-
-    public int percent;
-
-    public String whatIfWe;
-
-    public String city;
-    private transient String capitalizedCity;
-
+    @SerializedName("percentage")
+    public int percentage;
+    @SerializedName("what_if_we")
+    public String what_if_we;
+    @SerializedName("location")
+    public String location;
+    @SerializedName("education")
     public String education;
-
-    public List<UserTag> aboutTags;
-
-    public List<MutualFriend> mutualFriends;
-
-    public List<String> commonLikes;
-
+    @SerializedName("about_tags")
+    public List<UserTag> about_tags;
+    @SerializedName("cover_photo")
+    public Photo cover_photo;
+    @SerializedName("photos")
+    public List<Photo> photos;
+    @SerializedName("common_friends")
+    public List<MutualFriend> common_friends;
+    @SerializedName("common_friends_number")
+    public int common_friends_number;
+    @SerializedName("common_likes")
+    public List<String> common_likes;
+    @SerializedName("common_likes_number")
+    public int common_likes_number;
+    @SerializedName("status")
     public String status;
-
-    private User user;
 
     public boolean jingleNotification;
     public boolean chatNotification;
     public boolean sound;
-
-    public String getCapitalizedCity() {
-        if (capitalizedCity == null) {
-            StringBuilder sb = new StringBuilder(city);
-            sb.setCharAt(0, Character.toUpperCase(sb.charAt(0)));
-            capitalizedCity = sb.toString();
-        }
-        return capitalizedCity;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public static User clone(final User from) {
         try {

@@ -105,12 +105,12 @@ public class UserDetailsView extends ScrollView {
         setPhotos(user);
         setName(user);
         setJob(user);
-        setJingleBar(user.percent);
-        setWhatIfWe(user.whatIfWe);
-        setLocation(user.getCapitalizedCity());
+        setJingleBar(user.percentage);
+        setWhatIfWe(user.what_if_we);
+        setLocation(user.location);
         setEducation(user.education);
-        setAboutTags(user.aboutTags);
-        setMutualFriends(user.mutualFriends);
+        setAboutTags(user.about_tags);
+        setMutualFriends(user.common_friends);
     }
 
     private void setPhotos(final User user) {

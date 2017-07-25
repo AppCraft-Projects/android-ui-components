@@ -115,10 +115,10 @@ public class StageUserItemView extends CardView {
         jobText.setText(jingleUser.job);
         jobText.setVisibility(jobVisibility ? View.VISIBLE : View.GONE);
 
-        whatIfText.setText(TextUtils.isEmpty(jingleUser.whatIfWe) ? "" : jingleUser.whatIfWe);
+        whatIfText.setText(TextUtils.isEmpty(jingleUser.what_if_we) ? "" : jingleUser.what_if_we);
 
         meterProgress.setMax(100);
-        meterProgress.setProgress(Math.round(jingleUser.percent));
+        meterProgress.setProgress(Math.round(jingleUser.percentage));
 
         setupMutualFriendsAndTags();
         setupStageItemButton();
@@ -132,19 +132,19 @@ public class StageUserItemView extends CardView {
     }
 
     private void setupMutualFriendsAndTags() {
-        if (jingleUser.mutualFriends== null || jingleUser.mutualFriends.size() == 0) {
+        if (jingleUser.common_friends == null || jingleUser.common_friends.size() == 0) {
             mutualText.setText("0");
             mutualText.setEnabled(false);
             mutualImage.setEnabled(false);
         } else {
-            mutualText.setText(Integer.toString(jingleUser.mutualFriends.size()));
+            mutualText.setText(Integer.toString(jingleUser.common_friends.size()));
             mutualText.setEnabled(true);
             mutualImage.setEnabled(true);
         }
 
         int commonLikesCount = 0;
-        if (jingleUser.commonLikes != null && jingleUser.commonLikes.size() > 0) {
-            commonLikesCount = jingleUser.commonLikes.size();
+        if (jingleUser.common_likes != null && jingleUser.common_likes.size() > 0) {
+            commonLikesCount = jingleUser.common_likes.size();
         }
         tagsText.setText(String.valueOf(commonLikesCount));
         if (commonLikesCount > 0) {

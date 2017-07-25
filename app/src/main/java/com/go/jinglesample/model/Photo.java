@@ -2,13 +2,20 @@ package com.go.jinglesample.model;
 
 import android.graphics.Bitmap;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.parceler.Parcel;
 
 @Parcel
 public final class Photo implements Cloneable {
     public int position;
-    public String image_url;
+
+    @SerializedName("id")
     public String id;
+
+    @SerializedName("image_url")
+    public String image_url;
+
 
     private int bitmapResId;
     private boolean toDelete;
