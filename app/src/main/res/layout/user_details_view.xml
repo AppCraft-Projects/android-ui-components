@@ -114,6 +114,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/tv_user_detail_mutual_title"
+                style="@style/Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin16"
+                android:layout_marginLeft="@dimen/margin16"
+                android:layout_marginTop="@dimen/margin16"
+                android:textColor="@color/grey_description"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_user_detail_mutual_friends"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="@dimen/margin16"
+                android:layout_marginRight="@dimen/margin16"
+                android:layout_marginTop="@dimen/margin16"
+                android:overScrollMode="never"/>
+        </LinearLayout>
+
+    </LinearLayout>
 </merge>
