@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Jingle Sample</string>
     <string name="what_if_we">What if we...</string>
+    <string name="about_me">About me</string>
 </resources>

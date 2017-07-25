@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.go.jinglesample.model.Photo;
 import com.go.jinglesample.R;
 import com.go.jinglesample.model.User;
+import com.go.jinglesample.model.UserTag;
 import com.go.jinglesample.widget.UserDetailsView;
 
 import java.util.ArrayList;
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
         user.education = "ETEL, Sociology";
 
+        user.aboutTags = getMockUserTags();
+
         return user;
     }
 
@@ -63,5 +66,24 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
         photo.setBitmap(bitmap);
         return photo;
+    }
+
+    private ArrayList<UserTag> getMockUserTags() {
+        UserTag userTag1 = new UserTag();
+        userTag1.name = "Biciklizés szerpentinen";
+
+        UserTag userTag2 = new UserTag();
+        userTag2.name = "Úszás a tengerben";
+
+        UserTag userTag3 = new UserTag();
+        userTag3.name = "Jó sok alvás";
+
+        UserTag userTag4 = new UserTag();
+        userTag4.name = "Néhány pohár bor sosem árt";
+
+        UserTag userTag5 = new UserTag();
+        userTag5.name = "Romantikus vacsorák";
+
+        return new ArrayList<>(Arrays.asList(userTag1, userTag2, userTag3, userTag4, userTag5));
     }
 }

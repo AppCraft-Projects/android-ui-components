@@ -20,6 +20,8 @@ public final class User implements Cloneable {
 
     public String education;
 
+    public List<UserTag> aboutTags;
+
     public String getCapitalizedCity() {
         if (capitalizedCity == null) {
             StringBuilder sb = new StringBuilder(city);

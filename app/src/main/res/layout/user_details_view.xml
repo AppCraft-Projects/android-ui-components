@@ -109,7 +109,10 @@
             android:gravity="center_vertical"
             android:textColor="@color/black87"/>
 
-        <!-- AboutTagsView -->
+        <com.go.jinglesample.widget.AboutTagsView
+            android:id="@+id/atv_user_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 

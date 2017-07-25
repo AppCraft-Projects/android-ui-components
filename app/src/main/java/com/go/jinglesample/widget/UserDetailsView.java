@@ -13,6 +13,9 @@ import android.widget.TextView;
 import com.go.jinglesample.model.Photo;
 import com.go.jinglesample.R;
 import com.go.jinglesample.model.User;
+import com.go.jinglesample.model.UserTag;
+
+import java.util.List;
 
 public class UserDetailsView extends ScrollView {
 
@@ -34,6 +37,8 @@ public class UserDetailsView extends ScrollView {
     TextView locationText;
 
     TextView educationText;
+
+    AboutTagsView aboutTagsView;
 
     public UserDetailsView(Context context) {
         super(context);
@@ -73,6 +78,8 @@ public class UserDetailsView extends ScrollView {
         locationText = (TextView) findViewById(R.id.tv_user_details_location);
 
         educationText = (TextView) findViewById(R.id.tv_user_details_education);
+
+        aboutTagsView = (AboutTagsView) findViewById(R.id.atv_user_details);
     }
 
     public void setUser(final User user) {
@@ -85,6 +92,7 @@ public class UserDetailsView extends ScrollView {
         setWhatIfWe(user.whatIfWe);
         setLocation(user.getCapitalizedCity());
         setEducation(user.education);
+        setAboutTags(user.aboutTags);
     }
 
     private void setPhotos(final User user) {
@@ -140,4 +148,10 @@ public class UserDetailsView extends ScrollView {
     private void setEducation(String education) {
         educationText.setText(education);
     }
+
+    private void setAboutTags(List<UserTag> aboutTags) {
+        this.aboutTagsView.addJingleUserTags(aboutTags);
+    }
+
+
 }
