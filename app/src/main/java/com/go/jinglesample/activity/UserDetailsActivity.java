@@ -110,15 +110,15 @@ public class UserDetailsActivity extends AppCompatActivity {
     private List<MutualFriend> getMockMutualFriends() {
         MutualFriend friend1 = new MutualFriend();
         friend1.first_name = "Gerda";
-        friend1.main_image = BitmapFactory.decodeResource(getResources(), R.drawable.photo1);
+        friend1.main_image_resid = R.drawable.photo1;
 
         MutualFriend friend2 = new MutualFriend();
         friend2.first_name = "Zsuzsa";
-        friend2.main_image = BitmapFactory.decodeResource(getResources(), R.drawable.photo2);
+        friend2.main_image_resid = R.drawable.photo2;
 
         MutualFriend friend3 = new MutualFriend();
         friend3.first_name = "Zsófi";
-        friend3.main_image = BitmapFactory.decodeResource(getResources(), R.drawable.photo3);
+        friend3.main_image_resid = R.drawable.photo3;
 
         return new ArrayList<>(Arrays.asList(friend1, friend2, friend3));
     }

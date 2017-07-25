@@ -1,6 +1,8 @@
 package com.go.jinglesample.widget;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -175,7 +177,8 @@ public class UserDetailsView extends ScrollView {
 
             List<CircleImageTextAdapter.ImageTextItem> mutualImageTextItemList = new ArrayList<>(mutualFriends.size());
             for (MutualFriend mutualFriend : mutualFriends) {
-                mutualImageTextItemList.add(new CircleImageTextAdapter.ImageTextItem(mutualFriend.first_name, mutualFriend.main_image));
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), mutualFriend.main_image_resid);
+                mutualImageTextItemList.add(new CircleImageTextAdapter.ImageTextItem(mutualFriend.first_name, bitmap));
             }
             mutualFriendsView.setHasFixedSize(true);
             mutualFriendsView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));

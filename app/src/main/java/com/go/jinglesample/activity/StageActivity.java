@@ -5,6 +5,8 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.go.jinglesample.R;
 import com.go.jinglesample.model.MutualFriend;
@@ -21,6 +23,8 @@ import java.util.List;
 
 public class StageActivity extends AppCompatActivity {
 
+    private List<User> users;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,10 +32,33 @@ public class StageActivity extends AppCompatActivity {
 
         setTitle(getString(R.string.stage_title));
 
-        List<User> users = getMockUsers();
+        users = getMockUsers();
 
         UserListView userListView = (UserListView) findViewById(R.id.ulv_stage);
         userListView.setUserList(users);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_activity_user_list, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            SettingsActivity.startActivity(this, users.get(0));
+            return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 
     @NonNull
@@ -102,15 +129,15 @@ public class StageActivity extends AppCompatActivity {
     private List<MutualFriend> getMockMutualFriends() {
         MutualFriend friend1 = new MutualFriend();
         friend1.first_name = "Gerda";
-        friend1.main_image = BitmapFactory.decodeResource(getResources(), R.drawable.photo1);
+        friend1.main_image_resid = R.drawable.photo1;
 
         MutualFriend friend2 = new MutualFriend();
         friend2.first_name = "Zsuzsa";
-        friend2.main_image = BitmapFactory.decodeResource(getResources(), R.drawable.photo2);
+        friend2.main_image_resid = R.drawable.photo2;
 
         MutualFriend friend3 = new MutualFriend();
         friend3.first_name = "Zsófi";
-        friend3.main_image = BitmapFactory.decodeResource(getResources(), R.drawable.photo3);
+        friend3.main_image_resid = R.drawable.photo3;
 
         return new ArrayList<>(Arrays.asList(friend1, friend2, friend3));
     }

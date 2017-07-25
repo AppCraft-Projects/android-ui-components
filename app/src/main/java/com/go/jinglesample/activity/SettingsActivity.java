@@ -1,5 +1,7 @@
 package com.go.jinglesample.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -14,11 +16,21 @@ import com.go.jinglesample.model.UserTag;
 import com.go.jinglesample.widget.SettingsView;
 import com.go.jinglesample.widget.UserDetailsView;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    private static final String EXTRA_USER = "extra.user";
+
+    public static void startActivity(final Context context, final User user) {
+        Intent intent = new Intent(context, SettingsActivity.class);
+        intent.putExtra(EXTRA_USER, Parcels.wrap(user));
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +39,12 @@ public class SettingsActivity extends AppCompatActivity {
 
         setTitle(R.string.settings_title);
 
-        User user = getMockUser();
+        final Intent intent = getIntent();
+        final User user = Parcels.unwrap(intent.getParcelableExtra(EXTRA_USER));
+        if (user == null) {
+            finish();
+            return;
+        }
 
         SettingsView settingsView = (SettingsView) findViewById(R.id.sv_settings);
         settingsView.setupViewDefaults(user);
@@ -97,15 +114,15 @@ public class SettingsActivity extends AppCompatActivity {
     private List<MutualFriend> getMockMutualFriends() {
         MutualFriend friend1 = new MutualFriend();
         friend1.first_name = "Gerda";
-        friend1.main_image = BitmapFactory.decodeResource(getResources(), R.drawable.photo1);
+        friend1.main_image_resid = R.drawable.photo1;
 
         MutualFriend friend2 = new MutualFriend();
         friend2.first_name = "Zsuzsa";
-        friend2.main_image = BitmapFactory.decodeResource(getResources(), R.drawable.photo2);
+        friend2.main_image_resid = R.drawable.photo2;
 
         MutualFriend friend3 = new MutualFriend();
         friend3.first_name = "Zsófi";
-        friend3.main_image = BitmapFactory.decodeResource(getResources(), R.drawable.photo3);
+        friend3.main_image_resid = R.drawable.photo3;
 
         return new ArrayList<>(Arrays.asList(friend1, friend2, friend3));
     }
