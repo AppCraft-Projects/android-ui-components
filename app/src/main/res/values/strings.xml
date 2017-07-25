@@ -16,4 +16,6 @@
     <string name="settings_terms">Terms of Services</string>
     <string name="settings_sign_out">Sign Out</string>
     <string name="settings_delete_profile">Delete Profile</string>
+    <string name="settings_version">Version {0}</string>
+    <string name="save_settings">Save your settings</string>
 </resources>

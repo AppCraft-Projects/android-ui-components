@@ -28,6 +28,12 @@ public final class User implements Cloneable {
 
     public String status;
 
+    private User user;
+
+    public boolean jingleNotification;
+    public boolean chatNotification;
+    public boolean sound;
+
     public String getCapitalizedCity() {
         if (capitalizedCity == null) {
             StringBuilder sb = new StringBuilder(city);
@@ -35,6 +41,10 @@ public final class User implements Cloneable {
             capitalizedCity = sb.toString();
         }
         return capitalizedCity;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public static User clone(final User from) {
