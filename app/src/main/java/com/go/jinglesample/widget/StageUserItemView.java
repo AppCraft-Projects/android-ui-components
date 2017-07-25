@@ -123,7 +123,7 @@ public class StageUserItemView extends CardView {
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserDetailsActivity.startActivity(getContext());
+                UserDetailsActivity.startActivity(getContext(), jingleUser);
             }
         });
     }

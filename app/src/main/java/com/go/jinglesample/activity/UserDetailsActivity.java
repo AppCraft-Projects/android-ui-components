@@ -15,15 +15,19 @@ import com.go.jinglesample.model.User;
 import com.go.jinglesample.model.UserTag;
 import com.go.jinglesample.widget.UserDetailsView;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class UserDetailsActivity extends AppCompatActivity {
 
-    public static void startActivity(final Context context) {
+    private static final String EXTRA_USER = "extra.user";
+
+    public static void startActivity(final Context context, final User user) {
         Intent intent = new Intent(context, UserDetailsActivity.class);
-        // intent.putExtra(EXTRA_USER, Parcels.wrap(user));
+        intent.putExtra(EXTRA_USER, Parcels.wrap(user));
         context.startActivity(intent);
     }
 
