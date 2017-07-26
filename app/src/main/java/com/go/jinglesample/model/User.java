@@ -16,7 +16,7 @@ public final class User implements Cloneable {
     public String job;
     @SerializedName("company")
     public String company;
-    @SerializedName("percentage")
+    @SerializedName("percent")
     public int percentage;
     @SerializedName("what_if_we")
     public String what_if_we;
