@@ -8,6 +8,7 @@ import com.go.jinglesample.callback.StageViewCallback;
 import com.go.jinglesample.constants.Constants;
 import com.go.jinglesample.model.User;
 import com.go.jinglesample.repository.ConfigurationRepository;
+import com.go.jinglesample.repository.UserRepository;
 import com.go.jinglesample.utils.TimeUtil;
 
 import org.jetbrains.annotations.NotNull;
@@ -18,6 +19,7 @@ import java.util.List;
 public class StageService implements StageServiceCallback {
 
     ConfigurationRepository configurationRepository;
+    UserRepository userRepository;
 
     StageAsyncTask downloadUserListTask;
 
@@ -29,6 +31,7 @@ public class StageService implements StageServiceCallback {
 
     public StageService(final Context context) {
         this.downloadUserListTask = new StageAsyncTask();
+        this.userRepository = new UserRepository(context);
         this.configurationRepository = new ConfigurationRepository(context);
     }
 
@@ -38,7 +41,7 @@ public class StageService implements StageServiceCallback {
             downloadUserListTask.setCallback(this);
             downloadUserListTask.execute(Constants.STAGE_URL);
         } else {
-            // TODO kiolvasni adatbázisból
+            userRepository.getAllUsers(this);
         }
     }
 
@@ -47,7 +50,16 @@ public class StageService implements StageServiceCallback {
         downloadUserListTask.execute(Constants.STAGE_URL);
     }
 
-    public void downloadSuccess(final List<User> users) {
+    @Override
+    public void downloadSuccess(List<User> users) {
+        callback.populateUser(users);
+        userRepository.clearUsers();
+        userRepository.saveUsers(users);
+        configurationRepository.saveDownloadDate(new Date());
+    }
+
+    @Override
+    public void repositoryLoadSuccess(List<User> users) {
         callback.populateUser(users);
     }
 }

@@ -3,7 +3,6 @@ package com.go.jinglesample.model;
 import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
-import org.parceler.ParcelPropertyConverter;
 
 import java.util.List;
 

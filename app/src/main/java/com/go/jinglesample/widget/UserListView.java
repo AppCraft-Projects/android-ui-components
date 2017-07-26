@@ -11,15 +11,15 @@ import android.widget.FrameLayout;
 import com.github.rahatarmanahmed.cpv.CircularProgressView;
 import com.go.jinglesample.R;
 import com.go.jinglesample.adapter.StageAdapter;
-import com.go.jinglesample.asynctask.StageAsyncTask;
 import com.go.jinglesample.callback.StageViewCallback;
-import com.go.jinglesample.constants.Constants;
 import com.go.jinglesample.model.User;
 import com.go.jinglesample.service.StageService;
 
 import java.util.List;
 
 public class UserListView extends FrameLayout implements StageViewCallback {
+
+    StageService service;
 
     RecyclerView userList;
     FrameLayout loadingView;
@@ -61,12 +61,13 @@ public class UserListView extends FrameLayout implements StageViewCallback {
             }
         };
         userList.addItemDecoration(paddingDecoration);
+
+        service = new StageService(getContext());
     }
 
     public void loadUsers() {
-        StageService service = new StageService(getContext());
         service.setCallback(this);
-        service.loadUsers();
+        service.getUserList();
     }
 
     @Override
