@@ -15,6 +15,7 @@ import com.go.jinglesample.R;
 import com.go.jinglesample.activity.UserDetailsActivity;
 import com.go.jinglesample.model.User;
 import com.go.jinglesample.model.UserStatus;
+import com.squareup.picasso.Picasso;
 
 public class StageUserItemView extends CardView {
 
@@ -106,8 +107,14 @@ public class StageUserItemView extends CardView {
         userImage.getLayoutParams().height = imageHeight;
         shadowView.getLayoutParams().height = shadowHeight;
 
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), jingleUser.photos.get(0).getBitmap());
-        userImage.setImageBitmap(bitmap);
+        Picasso picasso = Picasso.with(getContext());
+        picasso.load(jingleUser.cover_photo.image_url)
+                .resize(imageWidth, imageHeight)
+                .placeholder(R.drawable.photo_placeholder)
+                .centerCrop().into(userImage);
+
+        // Bitmap bitmap = BitmapFactory.decodeResource(getResources(), jingleUser.photos.get(0).getBitmap());
+        // userImage.setImageBitmap(bitmap);
 
         nameAgeText.setText(jingleUser.first_name + ", " + jingleUser.age);
 

@@ -1,7 +1,6 @@
 package com.go.jinglesample.model;
 
-import android.graphics.Bitmap;
-
+import com.go.jinglesample.R;
 import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
@@ -23,7 +22,11 @@ public final class Photo implements Cloneable {
     private String fullImageUrl;
 
     public int getBitmap() {
-        return bitmapResId;
+        int result = R.drawable.photo_placeholder;
+        if (bitmapResId > 0) {
+            result = bitmapResId;
+        }
+        return result;
     }
 
     public void setBitmap(final int resId) {
