@@ -64,7 +64,7 @@ public class UserListView extends FrameLayout implements StageViewCallback {
     }
 
     public void loadUsers() {
-        StageService service = new StageService();
+        StageService service = new StageService(getContext());
         service.setCallback(this);
         service.loadUsers();
     }
