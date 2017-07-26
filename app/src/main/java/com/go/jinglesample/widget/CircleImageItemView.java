@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.go.jinglesample.R;
+import com.squareup.picasso.Picasso;
 
 public class CircleImageItemView extends LinearLayout {
 
@@ -28,7 +29,9 @@ public class CircleImageItemView extends LinearLayout {
     private int imageWidth = -1;
     private int imageHeight = -1;
 
-    private Bitmap bitmap;
+    private String image_url;
+
+    private Picasso picasso;
 
     public CircleImageItemView(Context context) {
         super(context);
@@ -51,6 +54,8 @@ public class CircleImageItemView extends LinearLayout {
         topTextView = (TextView) findViewById(R.id.tv_top_text);
         imageView = (ImageView) findViewById(R.id.iv_image);
         bottomTextView = (TextView) findViewById(R.id.tv_bottom_text);
+
+        picasso = Picasso.with(getContext());
     }
 
     public void setMode(int mode) {
@@ -72,8 +77,8 @@ public class CircleImageItemView extends LinearLayout {
         imageView.getLayoutParams().width = imageWidth;
     }
 
-    public void setImageBitmap(Bitmap bitmap) {
-        this.bitmap = bitmap;
+    public void setImageBitmap(String image_url) {
+        this.image_url = image_url;
     }
 
     public void setupView() {
@@ -102,6 +107,10 @@ public class CircleImageItemView extends LinearLayout {
             setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP);
         }
 
-        imageView.setImageDrawable(new CircularBitmapDrawable(bitmap));
+        picasso.load(image_url)
+                .resize(imageWidth, imageHeight)
+                .placeholder(R.drawable.photo_placeholder)
+                .centerCrop().into(imageView);
+        // imageView.setImageDrawable(new CircularBitmapDrawable(bitmap));
     }
 }

@@ -35,7 +35,7 @@ public class CircleImageTextAdapter extends RecyclerView.Adapter<CircleImageText
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         ImageTextItem item = imageTextItemList.get(position);
         holder.circleImageItemView.setMode(CircleImageItemView.MODE_BOTTOM_TEXT);
-        holder.circleImageItemView.setImageBitmap(item.image);
+        holder.circleImageItemView.setImageBitmap(item.image_url);
         holder.circleImageItemView.setText(item.text);
         holder.circleImageItemView.setupView();
     }
@@ -47,11 +47,11 @@ public class CircleImageTextAdapter extends RecyclerView.Adapter<CircleImageText
 
     public static class ImageTextItem {
         public String text;
-        public Bitmap image;
+        public String image_url;
 
-        public ImageTextItem(String text, Bitmap image) {
+        public ImageTextItem(String text, String image_url) {
             this.text = text;
-            this.image = image;
+            this.image_url = image_url;
         }
     }
 

@@ -114,10 +114,10 @@ public class UserDetailsView extends ScrollView {
     }
 
     private void setPhotos(final User user) {
-        Photo photoCover = user.photos.get(0);
-        Photo photo1 = user.photos.get(1);
-        Photo photo2 = user.photos.get(2);
-        Photo photo3 = user.photos.get(3);
+        Photo photoCover = user.cover_photo;
+        Photo photo1 = user.photos.get(0);
+        Photo photo2 = user.photos.get(1);
+        Photo photo3 = user.photos.get(2);
 
         this.coverPhoto.setType(UserPhotoView.TYPE_COVER);
         this.coverPhoto.setPhoto(photoCover);
@@ -177,8 +177,8 @@ public class UserDetailsView extends ScrollView {
 
             List<CircleImageTextAdapter.ImageTextItem> mutualImageTextItemList = new ArrayList<>(mutualFriends.size());
             for (MutualFriend mutualFriend : mutualFriends) {
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), mutualFriend.main_image_resid);
-                mutualImageTextItemList.add(new CircleImageTextAdapter.ImageTextItem(mutualFriend.first_name, bitmap));
+                //Bitmap bitmap = BitmapFactory.decodeResource(getResources(), mutualFriend.main_image_resid);
+                mutualImageTextItemList.add(new CircleImageTextAdapter.ImageTextItem(mutualFriend.first_name, mutualFriend.image_url));
             }
             mutualFriendsView.setHasFixedSize(true);
             mutualFriendsView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
